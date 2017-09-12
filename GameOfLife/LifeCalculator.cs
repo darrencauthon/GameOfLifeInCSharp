@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace GameOfLife
 {
@@ -10,7 +6,7 @@ namespace GameOfLife
     {
         public bool ShouldBeAlive(Cell cell)
         {
-            return false;
+            return cell.Neighbors.Count(x => x.IsAlive) == 2;
         }
     }
 }
