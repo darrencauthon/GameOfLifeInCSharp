@@ -6,7 +6,8 @@ namespace GameOfLife
     {
         public bool ShouldBeAlive(Cell cell)
         {
-            return cell.Neighbors.Count(x => x.IsAlive) == 2;
+            var liveNeighbors = cell.Neighbors.Count(x => x.IsAlive);
+            return liveNeighbors >= 2 && liveNeighbors != 4;
         }
     }
 }

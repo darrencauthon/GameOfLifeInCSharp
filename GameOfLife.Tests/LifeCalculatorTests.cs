@@ -65,6 +65,30 @@ namespace GameOfLife.Tests
 
                 lifeCalculator.ShouldBeAlive(cell).ShouldBeTrue();
             }
+
+            [Test]
+            public void A_live_cell_with_three_neighbors_lives_on()
+            {
+                var cell = new Cell
+                {
+                    IsAlive = true,
+                    Neighbors = new[] {new Cell {IsAlive = true}, new Cell {IsAlive = true}, new Cell {IsAlive = true}}
+                };
+
+                lifeCalculator.ShouldBeAlive(cell).ShouldBeTrue();
+            }
+
+            [Test]
+            public void A_live_cell_with_four_neighbors_dies()
+            {
+                var cell = new Cell
+                {
+                    IsAlive = true,
+                    Neighbors = new[] {new Cell {IsAlive = true}, new Cell {IsAlive = true}, new Cell {IsAlive = true}, new Cell {IsAlive = true}}
+                };
+
+                lifeCalculator.ShouldBeAlive(cell).ShouldBeFalse();
+            }
         }
     }
 }
